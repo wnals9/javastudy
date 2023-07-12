@@ -52,6 +52,15 @@ public class MainWrapper {
     System.out.println(PI);
     
     // reference type : 참조타입
+    //       ┌--------------┐
+    //   name│  0x12345678  │
+    //       │--------------│
+    //       │      ...     │
+    //       │--------------│
+    //       │      tom     │0x12345678
+    //       │--------------│
+    //       │      ...     │
+    //       └--------------┘
     String name = "tom";
     System.out.println(name);  //name에 tom이 들어있는게 아니라 tom의 주소값이 들어있음
   }
