@@ -6,7 +6,7 @@ public class MainWrapper {
     
     // single comment (한 줄 주석)
     /*
-      multiple commnet
+      multiple comment
       여러 줄 주석
     */
      
