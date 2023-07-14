@@ -147,9 +147,9 @@ public class MainWrapper {
     String season;  // "봄", "여름", "가을", "겨울"
     if(mod < 2) {
       season = "겨울";
-    } else if(mod >= 5) {
+    } else if(mod >= 6 && mod <= 8) {
       season = "여름";        
-    } else if(mod >= 8) {
+    } else if(mod >= 9 && mod <=11) {
       season = "가을";
     } else {
       season = "봄";
@@ -183,7 +183,6 @@ public class MainWrapper {
     System.out.println(day + "일은 " + weekname + "입니다.");
   }
 
-  
   public static void ex08() {
     // 대소문자 변환 (구글링으로 아스키코드 검색 후 참고)  // A의 아스키코드 = 65
     char ch = 'C';  // 임의의 대문자 또는 소문자
