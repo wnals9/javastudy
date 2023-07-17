@@ -1,4 +1,4 @@
-package ex01_brach;
+package ex01_branch;
 
 public class MainWrapper {
 
