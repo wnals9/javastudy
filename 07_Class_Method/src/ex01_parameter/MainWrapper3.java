@@ -15,7 +15,7 @@ public class MainWrapper3 {
     print(10, 20, 30);  // 인수가 정수 3개이다.
   }
 
-  public static void print(int... a) {
+  public static void print(int... a) {  // 말 줄임표로 선언된 파라미터는 사실 배열이다.
     for(int i = 0; i < a.length; i++) {
       System.out.println(a[i]);
     }
