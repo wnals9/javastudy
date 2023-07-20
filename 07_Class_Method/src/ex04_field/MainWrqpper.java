@@ -13,7 +13,7 @@ public class MainWrqpper {
     // 사칙연산
     myAcc.addition(3);        //  +3
     myAcc.substraction(2);    //  -2
-    myAcc.multiplication(3);  //  X3
+    myAcc.multiplication(3);  //  *3
     myAcc.division(2);        //  /2
     
     // value 확인
