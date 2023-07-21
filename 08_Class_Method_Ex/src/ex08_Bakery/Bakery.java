@@ -38,6 +38,13 @@ public class Bakery {
    */
   public BreadChange sell(int count, int money) {
     
+    // 잔돈이 부족하다
+    if(this.money < money - (count * PRICE)) {
+      System.out.println("판매 불가합니다.(잔돈이 부족하다.");
+      return null;
+    }
+    
+    
     // 빵이 부족하다.
     if(this.count < count) {
       System.out.println("판매 불가합니다.(빵이 부족하다.)");
@@ -57,6 +64,7 @@ public class Bakery {
       System.out.println("판매 불가합니다.(돈이 모자름)");
       return null;
     }
+    
  
     // 판매 처리
     this.count -= count;

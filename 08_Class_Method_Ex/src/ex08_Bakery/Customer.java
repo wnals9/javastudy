@@ -30,6 +30,12 @@ public class Customer {
     // bakery에 count와 money를 전달하고 빵과 잔돈을 받는다.
     BreadChange bc = bakery.sell(count, money);
     
+    // 가진 돈이 부족하다.
+    if(this.money < count * bakery.PRICE) {
+      System.out.println("구매 불가합니다.(가진 돈 부족)");
+       return;
+    }
+    
     // 구매 처리
     if(bc != null) {  // bc가 null이 아닐때만 처리
     this.count += bc.getBread();   // 빵 3개 받기
