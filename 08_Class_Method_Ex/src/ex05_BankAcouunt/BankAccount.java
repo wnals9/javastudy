@@ -18,5 +18,32 @@ public class BankAccount {
   }
   
   
+  // 생성자
+  public BankAccount() {
+    
+  }
+  
+  // Setter
+  public void setBank(Bank bank) {
+    this.bank = bank;
+  }
+  public void setAccNo(String accNo) {
+    this.accNo = accNo;
+  }
+  public void setBalance(long balance) {
+    this.balance = balance;
+  }
+  
+  // Getter
+  public Bank getBank() {
+    return bank;
+  }
+  public String getAccNo() {
+    return accNo;
+  }
+  public long getBalance() {
+    return balance;
+  }
+  
   
 }

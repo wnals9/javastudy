@@ -16,6 +16,27 @@ public class BankMember {
   }
   
   
+  // 생성자
+  public BankMember() {
+    
+  }
+  
+  // Setter
+  public void setName(String name) {
+    this.name = name;
+  }
+  public void setAcc(BankAccount acc) {
+    this.acc = acc;
+  }
+  
+  // Getter
+  public String getName() {
+    return name;
+  }
+  public BankAccount getAcc() {
+    return acc;
+  }
+  
   
   
 }
