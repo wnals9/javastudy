@@ -2,19 +2,19 @@ package ex05_BankAcouunt;
 
 public class Bank {
 
-  private String bank;
-  private String number;
+  private String name;
+  private String tel;
   
-  public Bank(String bank, String number) {
-    this.bank = bank;
-    this.number = number;
+  public Bank(String name, String tel) {
+    this.name = name;
+    this.tel = tel;
   }
   
   
  
   
   public void info() {
-    System.out.println(bank + "(" + number + ")" );
+    System.out.println(name + "(" + tel + ")" );
   }
   
 }
