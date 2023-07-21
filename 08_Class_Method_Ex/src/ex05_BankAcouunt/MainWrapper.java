@@ -66,20 +66,6 @@ public class MainWrapper {
     member1.info();
     member2.info();
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     }
   
   }
