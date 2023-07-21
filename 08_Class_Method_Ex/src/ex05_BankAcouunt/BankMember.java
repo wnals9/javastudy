@@ -37,6 +37,15 @@ public class BankMember {
     return acc;
   }
   
+  public void deposit(long money) {
+    acc.deposit(money);
+  }
+  public long withdrawal(long money) {
+    return acc.withdrawal(money);
+  }
   
+  public void transfer(BankMember member, long money ) {
+    member.deposit(withdrawal(money));
+  }
   
 }

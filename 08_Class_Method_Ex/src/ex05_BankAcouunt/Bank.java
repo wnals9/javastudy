@@ -18,7 +18,7 @@ public class Bank {
   
   // 생성자
   public Bank() {
- 
+    
   }
   
   // Setter
@@ -36,8 +36,6 @@ public class Bank {
   public String getTel() {
     return tel;
   }
-  
-  
   
   
 }

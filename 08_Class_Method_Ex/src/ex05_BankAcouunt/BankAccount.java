@@ -46,4 +46,26 @@ public class BankAccount {
   }
   
   
+  // 입금 메소드
+  public void deposit(long money) {
+    if(money <= 0) {
+      return;
+    }
+    balance += money;
+  }
+  
+  // 출금 메소드
+  public long withdrawal(long money) {
+    long retVal = 0;
+    if(money > 0 && balance <= money) {
+    balance -= money;
+    retVal = money;
+  }
+  return retVal;
+ }
+  
+  public void transfer(BankMember acc, long money) {
+    acc.deposit(withdrawal(money));
+  }
+
 }
