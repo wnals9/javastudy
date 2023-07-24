@@ -12,9 +12,9 @@ public class MainWrapper {
      // q9();
      // q8();
      // q7();
-     // q6();
+      q6();
      // q5();
-      q4();
+     // q4();
      // q3();
      // q2();
      // q1();
@@ -96,7 +96,7 @@ public class MainWrapper {
     // 예시)
     // 8, 11중 10과 가까운 수는 11입니다.
     public static void q5() {
-      int a = 9;
+      int a = 8;
       int b = 11;
       int diffA = (10 > a) ? 10 - a : a - 10;
       int diffB = (10 > b) ? 10 - b : b - 10;
