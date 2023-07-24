@@ -155,8 +155,8 @@ public class MainWrapper {
 		  if(result == 3 || result == 6 || result == 9) {
 		    condition1 = true;
 		  }
-		  result = n / 10;
-		  if(result == 3 || result == 6 || result == 9) {
+		  int result2 = n / 10;
+		  if(result2 == 3 || result2 == 6 || result2 == 9) {
 		    condition2 = true;
 		  }
 		  if(n % 10 == 1) {

@@ -11,8 +11,8 @@ public class MainWrapper {
      // q10();
      // q9();
      // q8();
-     // q7();
-      q6();
+      q7();
+     // q6();
      // q5();
      // q4();
      // q3();
@@ -27,12 +27,6 @@ public class MainWrapper {
     public static void q1() {
       int number = -5;
       int absNumber;
-      if(number < 0) {
-        absNumber = -number;
-      } else {
-        absNumber = number;
-      }
-      System.out.println(number + "의 절대값은 " + absNumber + "입니다.");
     }
     
     // q2. 나이에 따른 구분하기
@@ -46,20 +40,6 @@ public class MainWrapper {
     // 30살은 성인입니다.
     public static void q2() {
       String strAge = "30";
-      int age = Integer.parseInt(strAge);
-      if(age < 0 || age > 100) {
-        System.out.println("잘못된 나이");
-      } else if(age <= 7) {
-        System.out.println("미취학아동");
-      } else if(age <= 13) {
-        System.out.println("초등학생");
-      } else if(age <= 16) {
-        System.out.println("중학생");
-      } else if(age <= 19) {
-        System.out.println("고등학생");
-      } else {
-        System.out.println("성인");
-      }
     }
     
     // q3. 너비가 int width, 높이가 int height인 삼각형의 넓이를 계산하여 double area에 저장한 뒤 출력하시오.
@@ -81,7 +61,7 @@ public class MainWrapper {
     // 예시2)
     // 13월은 잘못된 정보입니다.
     public static void q4() {
-      int month = 13;
+      int month = 7;
       String[] season = {"겨울", "봄", "여름", "가을"};
       int[] lastDay = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
       if(month > 12 || month < 1) {
