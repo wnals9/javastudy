@@ -20,9 +20,9 @@ public class Firebat extends GameUnit {
    if(POWER >= other.getHp()) {
      other.setHp(0);
    }else
-   other.setHp(other.getHp() - POWER);
+     other.setHp(other.getHp() - POWER);
   }
   
-  
+
 
 }
