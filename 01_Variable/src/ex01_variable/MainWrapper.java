@@ -65,4 +65,30 @@ public class MainWrapper {
     System.out.println(name);  //name에 tom이 들어있는게 아니라 tom의 주소값이 들어있음
   }
   
+  /*
+   * primitive type -> reference type
+   * 
+   *    boolean     ->    Boolean
+   *    char        ->    Character
+   *    byte        ->    Byte
+   *    int         ->    Integer
+   *    long        ->    Long
+   *    double      ->    Double
+   */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
