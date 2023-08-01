@@ -13,16 +13,19 @@ public class MainWrapper {
   // 2번만에 exit가 입력되었다.
   public static void ex01() {
     System.out.println("");
-    Scanner sc = new Scanner(System.in);
+    Scanner sc;
+    String s = "";
     int n = 0;
     while(true) {
-      String s = sc.next();
+      sc = new Scanner(System.in);
+      s = sc.next();
       n++;
       System.out.println("문자열 입력 >>> " + s);
       if(s.equals("exit")) {
         System.out.println(n + "번만에 exit가 입력되었다");
+        sc.close();      
         break;
-      }else {
+        }else {
       }
     }
   }
@@ -38,12 +41,14 @@ public class MainWrapper {
   // 정답입니다.
   public static void ex02() {
     System.out.println();
-    Scanner sc = new Scanner(System.in);
+    Scanner sc;
     while(true) {
-      String s = sc.nextLine();
+      sc = new Scanner(System.in);
+      String s = sc.next();
       System.out.println("대한민국의 수도는? >>> " + s);
       if(s.equals("서울") || s.equals("seoul") || s.equals("Seoul") || s.equals("SEOUL")) {
         System.out.println("정답입니다.");
+        sc.close();
         break;
       }else {
         System.out.println("오답입니다.");
@@ -60,8 +65,26 @@ public class MainWrapper {
   // 평점(1~5) 입력 >>> 3
   // ★★★
   public static void ex03() {
-    
+    System.out.println();
+    Scanner sc;
+    String star = "★";
+    int s = 0;
+    while(true) {
+      sc = new Scanner(System.in);
+      s = sc.nextInt();
+      System.out.println("평점(1~5) 입력 >>> " + s);
+      if(s <= 0 || s > 5) {
+      } else if(s >= 1 && s < 5){
+        star += "★";
+        System.out.println(star);
+        sc.close();
+        break;
+      }
+    }
   }
+      
+    
+  
   
   // 문제4. 비밀번호는 "1234"이다.
   // 사용자로부터 비밀번호를 입력 받아서 "1234"와 같으면 "성공", "1234"가 아니면 다시 비밀번호를 입력 받도록 처리하시오.
@@ -96,8 +119,8 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    //ex01();
-    ex02();
+    ex01();
+    //ex02();
     //ex03();
     //ex04();
     //ex05();
