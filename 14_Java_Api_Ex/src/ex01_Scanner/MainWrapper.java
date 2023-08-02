@@ -127,15 +127,33 @@ public class MainWrapper {
   // 겨울을 영어로 하면? >>> win
   // 오답
   public static void ex05() {
-    
-  }
+    Scanner sc;
+    String[][] seasons = {
+        {"봄", "spring"},
+        {"여름", "summer"},
+        {"가을", "fall"},
+        {"겨울", "winter"}
+    };
+    String result;
+    for(int i = 0; i < seasons.length; i++) {
+        System.out.println(seasons[i][0] + "을 영어로 하면? >>> ");
+        sc = new Scanner(System.in);
+        result = sc.next();
+        if(result.equals(seasons[i][1])) {
+          System.out.println("정답");
+        }else {
+          System.out.println("오답");
+        }
+      }
+    }
+  
   
   public static void main(String[] args) {
     //ex01();
     //ex02();
     //ex03();
     //ex04();
-    //ex05();
+    ex05();
   }
 
 }

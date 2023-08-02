@@ -1,5 +1,7 @@
 package ex03_random;
 
+import java.util.Random;
+
 public class MainWrapper {
 
   // 문제1. 주사위 3개 던지기.
@@ -8,7 +10,7 @@ public class MainWrapper {
   // 주사위: [3, 1, 5]
   public static void ex01() {
     int[] dice = new int[3];
-    
+    Random random = new Random();
   }
   
   // 문제2. 통장(balance)에 최초 5000원이 있다.

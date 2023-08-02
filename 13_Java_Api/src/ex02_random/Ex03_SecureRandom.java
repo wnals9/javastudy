@@ -22,8 +22,7 @@ public class Ex03_SecureRandom {
     
     System.out.println(randomNumber1);
     System.out.println(randomNumber2);
-    System.out.println(randomNumber3
-        );
+    System.out.println(randomNumber3);
     
   }
 

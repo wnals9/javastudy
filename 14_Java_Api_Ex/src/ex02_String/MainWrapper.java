@@ -1,5 +1,7 @@
 package ex02_String;
 
+import java.util.Scanner;
+
 public class MainWrapper {
 
   // 문제1. 다음 주소를 아래와 같이 분석하여 분리하시오.
@@ -8,8 +10,11 @@ public class MainWrapper {
   // String param = "titleId=758037&no=112&weekday=mon";            // 물음표(?) 이후 문자열만 추출
   public static void ex01() {
     String url = "https://comic.naver.com/webtoon/detail?titleId=758037&no=112&weekday=mon";
-    String requestURI = "";
-    String param = "";
+    String requestURI = url.substring(0, 38);
+    String param = url.substring(39);
+    System.out.println(url);
+    System.out.println(requestURI);
+    System.out.println(param);
     
   }
 
@@ -19,8 +24,11 @@ public class MainWrapper {
   // String extName = "jpg";
   public static void ex02() {
     String fullName = "apple.jpg";
-    String fileName = "";
-    String extName = "";
+    String fileName = fullName.substring(0, 5);
+    String extName = fullName.substring(6);
+    System.out.println(fullName);
+    System.out.println(fileName);
+    System.out.println(extName);
     
   }
 
@@ -31,9 +39,11 @@ public class MainWrapper {
   // 변환 전 파일명 >>> happy.jpg
   // 변환 후 파일명 = happy_1658792128410.jpg
   public static void ex03() {
+    Scanner sc = new Scanner(System.in);
+    String file = sc.next();
     String beforeName = "";  // 변환 전 파일명
     String afterName = "";   // 변환 후 파일명
-    
+ 
   }
   
   // 문제4. 주어진 주민등록번호(personalId)를 분석하여 나이와 성별을 출력하시오.
@@ -58,11 +68,11 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    ex01();
-    ex02();
+    //ex01();
+    //ex02();
     ex03();
-    ex04();
-    ex05();
+    //ex04();
+    //ex05();
   }
 
 }
