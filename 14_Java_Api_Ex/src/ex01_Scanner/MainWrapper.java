@@ -73,12 +73,12 @@ public class MainWrapper {
       sc = new Scanner(System.in);
       s = sc.nextInt();
       System.out.println("평점(1~5) 입력 >>> " + s);
-      if(s <= 0 || s > 5) {
-      } else if(s >= 1 && s < 5){
-        star += "★";
-        System.out.println(star);
+      if(s >= 1 && s <= 5) {
+      System.out.println(star);
         sc.close();
         break;
+      } else {
+        
       }
     }
   }
@@ -101,7 +101,19 @@ public class MainWrapper {
   // 비밀번호? >>> 1234
   // 성공
   public static void ex04() {
-   
+    System.out.println();
+    Scanner sc;
+    int pw = 0;
+    for(int i = 0; i < 5; i++) {
+      sc = new Scanner(System.in);
+      pw = sc.nextInt();
+      System.out.println("비밀번호? >>> " + pw);
+     if(pw == 1234) {
+      System.out.println("성공");
+      
+     }
+    }
+   System.out.println("실패");
   }
   
   // 문제5. 4계절이 저장되어 있는 영한 사전(2차원 배열)을 이용하여 문제를 해결하시오. 순서대로 한 번씩만 물어보는 방식으로 처리하시오.
@@ -119,10 +131,10 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    ex01();
+    //ex01();
     //ex02();
     //ex03();
-    //ex04();
+    ex04();
     //ex05();
   }
 

@@ -10,7 +10,7 @@ public class MainWrapper {
     try {
       String name = "tom";
       Integer.parseInt(name);  // 발생한 NumberFormatException을 catch 블록으로 던진다.
-    } catch(RuntimeException e) {  // RuntimeException, Exception 가능
+    } catch(NumberFormatException e) {  // RuntimeException, Exception 가능
       System.out.println("예외발생");
     }
     
