@@ -110,7 +110,7 @@ public class MainWrapper {
       System.out.println("비밀번호? >>> " + pw);
      if(pw == 1234) {
       System.out.println("성공");
-      
+      return;
      }
     }
    System.out.println("실패");
@@ -134,7 +134,7 @@ public class MainWrapper {
     //ex01();
     //ex02();
     //ex03();
-    ex04();
+    //ex04();
     //ex05();
   }
 
