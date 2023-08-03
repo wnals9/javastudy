@@ -174,7 +174,7 @@ public class MainWrapper {
       String school = "가산대학교";
       
       // 출력(파일로 데이터 보내기)
-      dout.writeBytes(name);
+      dout.writeChars(name);  // dout.writeChar('t'), dout.writeChar('o'), dout.writeChar('m')
       dout.writeInt(age);
       dout.writeDouble(height);
       dout.writeUTF(school);
@@ -251,7 +251,7 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-    ex05();
+    ex04();
   }
 
 }
