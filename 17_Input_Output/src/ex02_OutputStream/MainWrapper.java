@@ -35,6 +35,9 @@ public class MainWrapper {
     try {
       
       // 파일출력스트림 생성 (반드시 예외 처리가 필요한 코드)
+      
+      // 1. 생성모드 : 언제나 새로 만든다.(덮어쓰기)        new FileOutputStream(file)
+      // 2. 추가모드 : 새로 만들거나, 기존 파일에 추가한다. new FileOutputStream(file, true)
       fout = new FileOutputStream(file);
       
       // 출력할 데이터(파일로 보낼 데이터)
@@ -46,6 +49,8 @@ public class MainWrapper {
       fout.write(c);
       fout.write(b);
     
+      System.out.println(file.getPath() + " 파일크기 : " + file.length() + "바이트");
+
     } catch(IOException e) {
       e.printStackTrace();
     } finally {
@@ -58,7 +63,6 @@ public class MainWrapper {
       }
     }
     
-    System.out.println(file.getPath() + " 파일크기 : " + file.length() + "바이트");
     
   }
   
@@ -79,6 +83,8 @@ public class MainWrapper {
       
       fout.write(b);
       
+      System.out.println(file.getPath() + " 파일크기: " + file.length() + "바이트");
+ 
     } catch(IOException e) {
       e.printStackTrace();
     } finally {
@@ -90,7 +96,6 @@ public class MainWrapper {
         e.printStackTrace();
       }
     }
-    System.out.println(file.getPath() + " 파일크기: " + file.length() + "바이트");
   }
   
   public static void ex03() {
@@ -127,6 +132,8 @@ public class MainWrapper {
       bout.write(c);
       bout.write(s2.getBytes(StandardCharsets.UTF_8));  // getByte("UTF-8")과 동일하다
     
+      System.out.println(file.getPath() + " 파일크기: " + file.length() + "바이트");
+
     } catch(IOException e) {
       e.printStackTrace();
       
@@ -139,7 +146,6 @@ public class MainWrapper {
         e.printStackTrace();
       }
     }
-    System.out.println(file.getPath() + " 파일크기: " + file.length() + "바이트");
     
   }
   
