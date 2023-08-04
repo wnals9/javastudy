@@ -1,5 +1,9 @@
 package ex05_log_file;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainWrapper {
@@ -35,6 +39,43 @@ public class MainWrapper {
         System.out.println(n1 + op + n2 + "=" + result);
         
       } catch(Exception e) {
+        
+        File dir = new File("C:/storage");
+        if(dir.exists() == false) {
+          dir.mkdirs();
+        }
+        File file = new File(dir, "log.txt");
+        
+        FileWriter fw = null;
+        
+        FileReader fr = null;
+        
+        try {
+          
+          fw = new FileWriter(file);
+          fr = new FileReader(file);
+          
+          char[] b = new char[1024];
+          
+          int readByte = 0;
+          
+          while((readByte = fr.read()) != -1) {
+            fw.write(b, 0, readByte);
+          }
+          
+          System.out.println(fw);
+          
+        } catch (IOException | NullPointerException ee) {
+          ee.printStackTrace();
+        } finally {
+          try {
+            if(fw != null) {
+              fw.close();
+            }
+          } catch (IOException ee) {
+            ee.printStackTrace();
+          }
+        }
         
         sc.nextLine();
         

@@ -1,5 +1,6 @@
 package ex03_random;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class MainWrapper {
@@ -11,6 +12,11 @@ public class MainWrapper {
   public static void ex01() {
     int[] dice = new int[3];
     Random random = new Random();
+    for(int i = 0; i < dice.length; i++) {
+      dice[i] = random.nextInt(6) + 1;
+    }
+    System.out.println("주사위: " + Arrays.toString(dice));
+    
   }
   
   // 문제2. 통장(balance)에 최초 5000원이 있다.
@@ -152,15 +158,15 @@ public class MainWrapper {
   
   public static void main(String[] args) {
     ex01();
-    ex02();
-    ex03();
-    ex04();
-    ex05();
-    ex06();
-    ex07();
-    ex08();
-    ex09();
-    ex10();
+   // ex02();
+   // ex03();
+   // ex04();
+   // ex05();
+   // ex06();
+   // ex07();
+   // ex08();
+   // ex09();
+   // ex10();
   }
 
 }
