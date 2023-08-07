@@ -4,18 +4,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class MainWrapper {
-
-  public static void main(String[] args) {
+  
+  public static void ex01() {
     
     // 문제. 아래 내용을 가지는 product.json 파일 생성하기 C:/storage/product.json 파일 생성하기
     /*
@@ -39,7 +37,7 @@ public class MainWrapper {
            }
          ]  
      */
-
+    
     // Map
     Map<String, Object> map1 = new HashMap<String, Object>();
     map1.put("code", "0001");
@@ -71,7 +69,7 @@ public class MainWrapper {
     
     // 파일 File 객체
     File file = new File(dir, "product.json");
-  
+    
     // try - catch - resources (close를 생략할 수 있는 try 문)
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
       bw.write(products);
@@ -79,7 +77,21 @@ public class MainWrapper {
     } catch(IOException e) {
       e.printStackTrace();
     }
-  
+    
   }
+  
+  public static void ex02() {
+    
+    
+    
+    
+    
+   
+    
+  }
+  
 
+  public static void main(String[] args) {
+    
+  }
 }
