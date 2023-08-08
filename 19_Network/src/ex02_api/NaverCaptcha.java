@@ -183,7 +183,6 @@ public class NaverCaptcha {
       }
     }
     
-    
   }
   
   public static void main(String[] args) {
