@@ -7,28 +7,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-import javax.net.ssl.HttpsURLConnection;
-
 import org.json.JSONObject;
 
-public class NaverPapago {
+public class Ex05_Naver_Papago {
 
   public static void main(String[] args) {
-
-    URL url  = null;
+    
+    URL url = null;
     HttpURLConnection con = null;
     BufferedOutputStream bout = null;  // 서버로 POST 데이터 보내는 용도
     BufferedReader reader = null;
-
+    
     try {
       
       Scanner sc = new Scanner(System.in);
       System.out.println("번역할 한국어 입력 >>> ");
       String text = sc.nextLine();
+      sc.close();
       
       String spec = "https://openapi.naver.com/v1/papago/n2mt";
-      String clientId = "CeVcKRHoe5yK3LQBXEUX";
-      String clientSecret = "rjNGO6zG3c";
+      String clientId = "RTJMyHb54a63lvLzPh7A";
+      String clientSecret = "0xR9yv0oo3";
       
       String params = "source=ko&target=en&text=" + text;
       
@@ -51,7 +50,7 @@ public class NaverPapago {
       bout.flush();
       
       int responseCode = con.getResponseCode();
-      if(responseCode != HttpsURLConnection.HTTP_OK) {
+      if(responseCode != HttpURLConnection.HTTP_OK) {
         throw new RuntimeException(responseCode + " 발생");
       }
       
@@ -59,7 +58,7 @@ public class NaverPapago {
       
       StringBuilder sb = new StringBuilder();
       String line = null;
-      while((line = reader.readLine()) != null){
+      while((line = reader.readLine()) != null) {
         sb.append(line);
       }
       
@@ -82,7 +81,8 @@ public class NaverPapago {
       } catch (Exception e) {
         e.printStackTrace();
       }
-    }    
+    }
+    
   }
 
 }

@@ -6,17 +6,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
 import org.json.JSONObject;
 
-public class NaverCaptcha {
-  
-  private static final String CLIENT_ID = "CeVcKRHoe5yK3LQBXEUX";
-  private static final String CLIENT_SECRET = "rjNGO6zG3c";
+public class Ex04_Naver_Captcha {
+
+  private static final String CLIENT_ID = "RTJMyHb54a63lvLzPh7A";
+  private static final String CLIENT_SECRET = "0xR9yv0oo3";
   
   private static String getKey() {
     
@@ -30,7 +29,7 @@ public class NaverCaptcha {
       String spec = "https://openapi.naver.com/v1/captcha/nkey?code=0";
       
       url = new URL(spec);
-      con = (HttpURLConnection)url.openConnection();
+      con = (HttpURLConnection) url.openConnection();
       
       con.setRequestMethod("GET");
       
@@ -42,33 +41,31 @@ public class NaverCaptcha {
         throw new RuntimeException(responseCode + " 발생");
       }
       
-    reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-    
-    StringBuilder sb = new StringBuilder();
-    String line = null;
-    while((line = reader.readLine()) != null) {
-      sb.append(line);
-    }
-    
-    System.out.println(sb.toString());
-    
-    JSONObject obj = new JSONObject(sb.toString());
-    result = obj.getString("key");
-    
-  } catch (Exception e) {
-    System.out.println(e.getMessage());
-  } finally {
-    try {
-      if(reader != null) reader.close();
-      if(con != null) con.disconnect();
+      reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+      
+      StringBuilder sb = new StringBuilder();
+      String line = null;
+      while((line = reader.readLine()) != null) {
+        sb.append(line);
+      }
+      
+      JSONObject obj = new JSONObject(sb.toString());
+      result = obj.getString("key");
+      
     } catch (Exception e) {
-      e.printStackTrace();
+      System.out.println(e.getMessage());
+    } finally {
+      try {
+        if(reader != null) reader.close();
+        if(con != null) con.disconnect();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
-  }
-  
-  return result;
     
-}
+    return result;
+    
+  }
   
   private static String getImage() {
     
@@ -84,7 +81,7 @@ public class NaverCaptcha {
       String spec = "https://openapi.naver.com/v1/captcha/ncaptcha.bin?key=" + key;
       
       url = new URL(spec);
-      con = (HttpURLConnection)url.openConnection();
+      con = (HttpURLConnection) url.openConnection();
       
       con.setRequestMethod("GET");
       
@@ -111,8 +108,6 @@ public class NaverCaptcha {
         bout.write(b, 0, readByte);
       }
       
-      System.out.println(file.getPath() + " 파일 생성 완료");
-      
     } catch (Exception e) {
       System.out.println(e.getMessage());
     } finally {
@@ -120,12 +115,14 @@ public class NaverCaptcha {
         if(bout != null) bout.close();
         if(bin != null) bin.close();
         if(con != null) con.disconnect();
-    } catch(Exception e) {
-      e.printStackTrace();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
-  }
+    
     return key;
-}  
+    
+  }
   
   private static void validInput() {
     
@@ -140,6 +137,7 @@ public class NaverCaptcha {
       Scanner sc = new Scanner(System.in);
       System.out.println("입력 >> ");
       String value = sc.next();
+      sc.close();
       
       String spec = "https://openapi.naver.com/v1/captcha/nkey?code=1&key=" + key + "&value=" + value;
       
@@ -169,9 +167,9 @@ public class NaverCaptcha {
       if(obj.getBoolean("result")) {
         System.out.println("맞습니다.");
       } else {
-        System.out.println("틀립니다");
+        System.out.println("틀립니다.");
       }
-      
+    
     } catch (Exception e) {
       System.out.println(e.getMessage());
     } finally {
@@ -182,9 +180,9 @@ public class NaverCaptcha {
         e.printStackTrace();
       }
     }
-    
+      
   }
-  
+
   public static void main(String[] args) {
     validInput();
   }

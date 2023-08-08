@@ -8,13 +8,13 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class JSON_Library {
-  
+public class Ex01_JSON_Library {
+
   /*
    * JSON 공식 홈페이지
-   * 1. 링크: https://json.org/
+   * 1. 링크 : https://www.json.org/
    * 2. Java 라이브러리 다운로드
-   *    JSON-Java 라이브러리 
+   *    JSON-Java 라이브러리
    */
   
   /*
@@ -23,7 +23,7 @@ public class JSON_Library {
    * 2. 자바스크립트 객체 표기법
    * 3. 객체는 중괄호 {}로 묶어서 표기한다.
    * 4. 배열은 대괄호 []로 묶어서 표기한다.
-   * 5. 속성(property)과 값(value)을 콜론(:)으로 구분하여 작성한다.
+   * 5. 속성(property)과 값(value)를 콜론(:)으로 구분하여 작성한다. 
    */
   
   /*
@@ -45,7 +45,7 @@ public class JSON_Library {
     System.out.println(obj.toString());
     
   }
-
+  
   public static void ex02() {
     
     // JSON 배열 만들기 (JSON 객체를 2개 저장한 배열)
@@ -58,7 +58,7 @@ public class JSON_Library {
     
     // 객체2
     JSONObject obj2 = new JSONObject();
-    obj2.put("name", "Jessica");
+    obj2.put("name", "jessica");
     obj2.put("age", 60);
     obj2.put("height", 190.5);
     
@@ -71,7 +71,7 @@ public class JSON_Library {
     System.out.println(array.toString());
     
   }
-  
+
   public static void ex03() {
     
     // String 형식의 JSON 객체 분석하기
@@ -79,11 +79,11 @@ public class JSON_Library {
     
     // String -> JSONObject 객체로 변환
     JSONObject obj = new JSONObject(str);
-
-    // 원하는 Key(property)를 가져오기
-    String name = obj.getString("name");       // String name = (String)obj.get("name");
-    int age = obj.getInt("age");               // int age = (int)obj.get("age");
-    double height = obj.getDouble("height");  // double height = (double)obj.get("height");
+    
+    // 원하는 Key(Property)를 가져오기
+    String name = obj.getString("name");     // String name = (String)obj.get("name");
+    int age = obj.getInt("age");             // int age = (int)obj.get("age");
+    double height = obj.getDouble("height"); // double height = (double)obj.get("height");
     
     // 결과 확인
     System.out.println(name);
@@ -95,23 +95,23 @@ public class JSON_Library {
   public static void ex04() {
     
     // String 형식의 JSON 배열 분석하기
-    String str = "[{\"name\":\"tom\",\"age\":50,\"height\":180.5},{\"name\":\"Jessica\",\"age\":60,\"height\":190.5}]";
+    String str = "[{\"name\":\"tom\",\"age\":50,\"height\":180.5},{\"name\":\"jessica\",\"age\":60,\"height\":190.5}]";
     
     // String -> JSONArray 변환
     JSONArray array = new JSONArray(str);
     
     // 일반 for문
     for(int i = 0, length = array.length(); i < length; i++) {
-     JSONObject obj = array.getJSONObject(i);
-     String name = obj.getString("name");
-     int age = obj.getInt("age");
-     double height = obj.getDouble("height");
-     System.out.println((i + 1) + ", " + name + ", " + age + ", " + height);
+      JSONObject obj = array.getJSONObject(i);
+      String name = obj.getString("name");
+      int age = obj.getInt("age");
+      double height = obj.getDouble("height");
+      System.out.println((i + 1) + ", " + name + ", " + age + ", " + height);
     }
     
     // 향상 for문
     for(Object obj : array) {
-      JSONObject person = (JSONObject)obj;
+      JSONObject person = (JSONObject) obj;
       String name = person.getString("name");
       int age = person.getInt("age");
       double height = person.getDouble("height");
@@ -132,7 +132,7 @@ public class JSON_Library {
     
     // JSONObject
     JSONObject obj = new JSONObject(map);
-   
+    
     // Key(Property)에 해당하는 Value 확인
     String name = obj.getString("name");
     int age = obj.getInt("age");
@@ -160,25 +160,25 @@ public class JSON_Library {
     map2.put("age", 60);
     map2.put("height", 190.5);
     
-    // List(Map 2개 저장)
+    // List (Map 2개 저장)
     List<Map<String, Object>> list = Arrays.asList(map1, map2);
     
     // JSONArray
     JSONArray array = new JSONArray(list);
     
     // 일반 for문
-  for(int i = 0, length = array.length(); i < length; i++) {
-    JSONObject obj = array.getJSONObject(i);
-    String name = obj.getString("name");
-    int age = obj.getInt("age");
-    double height = obj.getDouble("height");
-    System.out.println((i + 1) + ", " + name + ", " + age + ", " + height);
-   }
+    for(int i = 0, length = array.length(); i < length; i++) {
+      JSONObject obj = array.getJSONObject(i);
+      String name = obj.getString("name");
+      int age = obj.getInt("age");
+      double height = obj.getDouble("height");
+      System.out.println((i + 1) + ", " + name + ", " + age + ", " + height);
+    }
     
   }
   
   public static void main(String[] args) {
-    ex02();
+    ex01();
   }
 
 }
