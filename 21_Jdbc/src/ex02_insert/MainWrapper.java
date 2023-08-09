@@ -13,10 +13,10 @@ public class MainWrapper {
 
     // User 정보 입력
     Scanner sc = new Scanner(System.in);
-    System.out.println("USER_ID >>> ");
+    System.out.print("USER_ID >>> ");
     String user_id = sc.next();
     sc.nextLine();
-    System.out.println("USER_NAME >>> ");
+    System.out.print("USER_NAME >>> ");
     String user_name = sc.nextLine();
     sc.close();
     
