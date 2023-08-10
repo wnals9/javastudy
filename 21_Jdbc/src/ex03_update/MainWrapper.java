@@ -10,8 +10,8 @@ import dto.UserDto;
 public class MainWrapper {
 
   public static void main(String[] args) {
-    
-    // 수정할 사용자 번호(USER_NO) 입력
+  
+    // 수정할 User 정보 입력
     Scanner sc = new Scanner(System.in);
     System.out.print("수정할 USER_NO >>> ");
     int user_no = sc.nextInt();
@@ -20,7 +20,7 @@ public class MainWrapper {
     String user_name = sc.nextLine();
     sc.close();
     
-    // UserDto 생성
+    // UserDto 객체 생성
     UserDto user = new UserDto();
     user.setUser_no(user_no);
     user.setUser_name(user_name);
@@ -46,15 +46,17 @@ public class MainWrapper {
       ps = con.prepareStatement(sql);
       
       // 쿼리문에 변수 넣기
-      ps.setInt(1, user.getUser_no());
-      ps.setString(2, user.getUser_name());
+      ps.setString(1, user.getUser_name()); // 1번째 물음표 ← user.getUser_name()
+      ps.setInt(2, user.getUser_no());      // 2번째 물음표 ← user.getUser_no()
       
-      // 쿼리문 실행
+      // 쿼리문 실행 : update 된 행의 개수가 반환된다.
       int updateResult = ps.executeUpdate();
       
       // 결과
-      System.out.println(updateResult + "개의 행이 수정되었습니다.");
+      System.out.println(updateResult + "행이 수정되었습니다.");
       
+      // 커밋? 안 한다.
+      // con.setAutoCommit(true); ← 기본값으로 사용되고 있다.
       
     } catch (Exception e) {
       e.printStackTrace();
@@ -66,5 +68,7 @@ public class MainWrapper {
         e.printStackTrace();
       }
     }
+    
   }
+
 }

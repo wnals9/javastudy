@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import dto.ContactDto;
@@ -56,6 +58,7 @@ public class ContactDao {
     return con;
   }
   
+  
   private void close() {
     try {
       if(rs != null) rs.close();
@@ -65,6 +68,7 @@ public class ContactDao {
       e.printStackTrace();
     }
   }
+  
   
   /**
    * 삽입메소드<br>
@@ -96,6 +100,7 @@ public class ContactDao {
     
   }
 
+  
   /**
    * 수정 메소드<br>
    * @param contactDto 수정할 연락처 정보(contact_no, name, tel, email, address)
@@ -127,6 +132,7 @@ public class ContactDao {
     
   }
   
+  
   /**
    * 삭제 메소드<br>
    * @param contact_no 삭제할 연락처 번호
@@ -152,7 +158,76 @@ public class ContactDao {
   }
   
   
-  
-  
+  /**
+   * 전체 조회 메소드<br>
+   * @return 조회된 모든 연락처 정보(ContactDto)
+   */
+  public List<ContactDto> selectList() {
+    
+    List<ContactDto> list = new ArrayList<ContactDto>();
+    
+    try {
+      
+      con = getConnection();
+      String sql = "SELECT CONTACT_NO, NAME, TEL, EMAIL, ADDRESS, CREATED_AT FROM CONTACT_T ORDER BY CONTACT_NO ASC";
+      ps = con.prepareStatement(sql);
+      rs = ps.executeQuery();
+      while(rs.next()) {
+        ContactDto contactDto = new ContactDto();
+        contactDto.setContact_no(rs.getInt("CONTACT_NO"));
+        contactDto.setName(rs.getString("NAME"));
+        contactDto.setTel(rs.getString("TEL"));
+        contactDto.setEmail(rs.getString("EMAIL"));
+        contactDto.setAddress(rs.getString("ADDRESS"));
+        contactDto.setCreated_at(rs.getString("CREATED_AT"));
+        list.add(contactDto);
+      }
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      close();
+    }
+    
+    return list;
+    
+  }
 
+  
+  /**
+   * 상세 조회 메소드<br>
+   * @param contact_no 조회할 연락처 번호
+   * @return contactDto 조회된 연락처 정보, 조회된 연락처가 없으면 null 반환
+   */
+  public ContactDto selectContactByNo(int contact_no) {
+    
+    ContactDto contactDto = null;
+    
+    try {
+      
+      con = getConnection();
+      String sql = "SELECT CONTACT_NO, NAME, TEL, EMAIL, ADDRESS, CREATED_AT FROM CONTACT_T WHERE CONTACT_NO = ?";
+      ps = con.prepareStatement(sql);
+      ps.setInt(1, contact_no);
+      rs = ps.executeQuery();
+      if(rs.next()) {
+        contactDto = new ContactDto();
+        contactDto.setContact_no(rs.getInt(1));
+        contactDto.setName(rs.getString(2));
+        contactDto.setTel(rs.getString(3));
+        contactDto.setEmail(rs.getString(4));
+        contactDto.setAddress(rs.getString(5));
+        contactDto.setCreated_at(rs.getString(6));
+      }
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      close();
+    }
+    
+    return contactDto;
+    
+  }
+  
 }
