@@ -1,10 +1,16 @@
-package view;
+package main;
 
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
 import controller.ContactController;
+import view.DeleteView;
+import view.DetailView;
+import view.ListView;
+import view.UpdateView;
+import view.View;
+import view.insertView;
 
 // ContactMain -> ContactController -> ContactService -> ContactDao -> DB
 
@@ -45,10 +51,10 @@ public class ContactMain {
       Map<String, Object> map = null;
       if(view != null) {
         map = view.display();
+        String message = contactController.request(choice, map);
+        JOptionPane.showMessageDialog(null, message);
       }
       
-      String message = contactController.request(choice, map);
-      JOptionPane.showMessageDialog(null, message);
       
     }
   
