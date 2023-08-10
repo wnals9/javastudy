@@ -19,6 +19,8 @@ import dto.ContactDto;
  * 3. 하나의 객체만 만들어서 사용하는 Singleton Pattern으로 객체를 생성한다.
  */
 
+//ContactMain -> ContactController -> ContactService -> ContactDao -> DB
+
 public class ContactDao {
   
   /*
@@ -75,7 +77,9 @@ public class ContactDao {
    * @param contactDto 삽입할 연락처 정보(name, tel, email, address)
    * @return insertCount 삽입된 행(Row)의 개수, 1이면 삽입 성공, 0이면 삽입 실패
    */
-  public int inesrt(ContactDto contactDto) {
+  public int insert(ContactDto contactDto) {
+    
+    System.out.println("Dao::" + contactDto);
     
     int insertCount = 0;
     
@@ -108,12 +112,15 @@ public class ContactDao {
    */
   public int update(ContactDto contactDto) {
     
+    System.out.println("Dao::" + contactDto);
+    
+    
     int updateCount = 0;
     
     try {
       
       con = getConnection();
-      String sql = "UPDATE CONTACT_T SET NAME = ?, EMAIL = ?, ADDRESS = ? WHERE CONTACT_NO = ?";
+      String sql = "UPDATE CONTACT_T SET NAME = ?, TEL = ?, EMAIL = ?, ADDRESS = ? WHERE CONTACT_NO = ?";
       ps = con.prepareStatement(sql);
       ps.setString(1, contactDto.getName());
       ps.setString(2, contactDto.getTel());
@@ -140,11 +147,13 @@ public class ContactDao {
    */
   public int delete(int contact_no) {
     
+    System.out.println("Dao::" + contact_no);
+    
     int deleteCount = 0;
     
     try {
       con = getConnection();
-      String sql = "DELETE FROM CONTACT_T WHERE CONTATCT_NO = ?";
+      String sql = "DELETE FROM CONTACT_T WHERE CONTACT_NO = ?";
       ps = con.prepareStatement(sql);
       ps.setInt(1, contact_no);
       deleteCount = ps.executeUpdate();
@@ -200,6 +209,8 @@ public class ContactDao {
    * @return contactDto 조회된 연락처 정보, 조회된 연락처가 없으면 null 반환
    */
   public ContactDto selectContactByNo(int contact_no) {
+    
+    System.out.println("Dao::" + contact_no);
     
     ContactDto contactDto = null;
     

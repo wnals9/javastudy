@@ -6,17 +6,17 @@ import javax.swing.JOptionPane;
 
 import controller.ContactController;
 
-// ContactView -> ContactController -> ContactSeriver -> ContactDao -> DB
+// ContactMain -> ContactController -> ContactService -> ContactDao -> DB
 
-public class ContactView {
+public class ContactMain {
 
-  public void display() {
+  public static void main(String[] args) {
 
     ContactController contactController = new ContactController();
     
     while(true) {
       
-      String choice = JOptionPane.showInputDialog("1.삽입\n2.수정\n3.삭제\n4.전체조회\n5.상세조회\n원하는 작업을 입력하세요.");
+      String choice = JOptionPane.showInputDialog("1.삽입\n2.수정\n3.삭제\n4.전체조회\n5.상세조회\n0.종료\n원하는 작업을 입력하세요.");
       View view = null;
       
       switch(choice) {
@@ -33,7 +33,7 @@ public class ContactView {
         view = new ListView();
         break;
       case "5":
-        view = new DeleteView();
+        view = new DetailView();
         break;
       case "0":
         JOptionPane.showMessageDialog(null, "연락처 프로그램을 종료합니다.");
@@ -47,7 +47,9 @@ public class ContactView {
         map = view.display();
       }
       
-      contactController.request(choice, map);
+      String message = contactController.request(choice, map);
+      JOptionPane.showMessageDialog(null, message);
+      
     }
   
   }
