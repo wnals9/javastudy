@@ -40,13 +40,10 @@ public class NaverApiSearchBook {
       
       File dir = new File("C:/download");
       if(dir.exists() == false) {
-        dir.mkdir();
+        dir.mkdirs();
       }
       String fileName = spec.substring(48);
       File file = new File(dir, fileName);
-      if(file.exists()) {
-        file.createNewFile();
-      }
       
       bout = new BufferedOutputStream(new FileOutputStream(file));
       
@@ -137,8 +134,6 @@ public class NaverApiSearchBook {
       
       String message = e.getMessage();
       
-      String clazz = e.getClass().getName();
-      
       File dir = new File("C:/download/log");
       if(dir.exists() == false) {
         dir.mkdirs();
@@ -147,7 +142,7 @@ public class NaverApiSearchBook {
       
       try(BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))){
         
-        bw.write(time + " " + message + " " + clazz);
+        bw.write(time + " " + message);
         bw.newLine();
         
         System.out.println(file.getPath() + " 파일에 로그가 작성되었습니다.");
