@@ -1,16 +1,12 @@
 package ex02_json_file;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -116,7 +112,7 @@ public static void ex02() {
       
       // String -> JSONObject 변환
       JSONObject obj = new JSONObject(sb.toString());
-      
+      System.out.println(obj);
       // 원하는 정보 추출하기 (Parsing)
       JSONObject rss = obj.getJSONObject("rss");
       JSONObject channel = rss.getJSONObject("channel");
@@ -125,7 +121,7 @@ public static void ex02() {
       JSONObject header = description.getJSONObject("header");
       String wf = header.getString("wf");
       System.out.println(wf.replace("<br />", "\n"));
-      
+     
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
@@ -142,6 +138,6 @@ public static void ex02() {
   
 
   public static void main(String[] args) {
-    ex02();
+    ex01();
   }
 }
